@@ -31,12 +31,24 @@
                 </form>
             </field>
         </record>
-        ## Vista de calendario para Clases
+        <!-- Vista de calendario para Clases
         <record id="view_clase_calendar" model="ir.ui.view">
             <field name="name">gestion_cursos.clase.calendar</field>
             <field name="model">gestion_cursos.clase</field>
             <field name="arch" type="xml">
                 <calendar string="Clases" date_start="fecha"/>
+            </field>
+        </record>
+        -->
+        <record id="view_clase_calendar" model="ir.ui.view">
+            <field name="name">clase.calendar</field>
+            <field name="model">gestion_cursos.clase</field>
+            <field name="arch" type="xml">
+                <calendar string="Clases Calendar"
+                        date_start="fecha"
+                        date_stop="fecha_fin">
+                    <field name="name"/>
+                </calendar>
             </field>
         </record>
     </data>

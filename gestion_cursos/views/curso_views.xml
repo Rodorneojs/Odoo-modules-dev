@@ -32,5 +32,15 @@
                 </form>
             </field>
         </record>
+        <!-- Vista de calendario para Cursos -->
+        <record id="view_curso_calendar" model="ir.ui.view">
+            <field name="name">gestion_cursos.curso.calendar</field>
+            <field name="model">gestion_cursos.curso</field>
+            <field name="arch" type="xml">
+                <calendar string="Cursos" date_start="fecha_inicio" date_stop="fecha_fin">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
     </data>
 </odoo>
