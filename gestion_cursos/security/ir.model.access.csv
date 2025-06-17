@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gestion_cursos_curso,gestion_cursos.curso,model_gestion_cursos_curso,base.group_user,1,1,1,1
+access_gestion_cursos_alumno,gestion_cursos.alumno,model_gestion_cursos_alumno,base.group_user,1,1,1,1
+access_gestion_cursos_clase,gestion_cursos.clase,model_gestion_cursos_clase,base.group_user,1,1,1,1
+access_gestion_cursos_inscripcion,gestion_cursos.inscripcion,model_gestion_cursos_inscripcion,base.group_user,1,1,1,1
+access_gestion_cursos_evaluacion,gestion_cursos.evaluacion,model_gestion_cursos_evaluacion,base.group_user,1,1,1,1
+

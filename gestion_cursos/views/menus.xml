@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú de Gestión de Cursos -->
+            <!-- Menú raíz -->
+        <menuitem id="menu_gestion_cursos_root" name="Gestión de Cursos" sequence="10"/>
+        
+        <!-- Acción y menú para Cursos -->
+        <record id="action_curso" model="ir.actions.act_window">
+            <field name="name">Cursos</field>
+            <field name="res_model">gestion_cursos.curso</field>
+            <field name="view_mode">list,form,kanban,calendar</field>
+        </record>
+        
+        <menuitem id="menu_cursos" name="Cursos" parent="menu_gestion_cursos_root" action="action_curso" sequence="10"/>
+        
+        <!-- Acción y menú para Alumnos -->
+        <record id="action_alumno" model="ir.actions.act_window">
+            <field name="name">Alumnos</field>
+            <field name="res_model">gestion_cursos.alumno</field>
+            <field name="view_mode">list,form,kanban</field>
+        </record>
+        
+        <menuitem id="menu_alumnos" name="Alumnos" parent="menu_gestion_cursos_root" action="action_alumno" sequence="20"/>
+        
+        <!-- Acción y menú para Clases -->
+        <record id="action_clase" model="ir.actions.act_window">
+            <field name="name">Clases</field>
+            <field name="res_model">gestion_cursos.clase</field>
+            <field name="view_mode">list,form,calendar</field>
+        </record>
+        
+        <menuitem id="menu_clases" name="Clases" parent="menu_gestion_cursos_root" action="action_clase" sequence="30"/>
+        
+        <!-- Acción y menú para Inscripciones -->
+        <record id="action_inscripcion" model="ir.actions.act_window">
+            <field name="name">Inscripciones</field>
+            <field name="res_model">gestion_cursos.inscripcion</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <menuitem id="menu_inscripciones" name="Inscripciones" parent="menu_gestion_cursos_root" action="action_inscripcion" sequence="40"/>
+        
+        <!-- Acción y menú para Evaluaciones -->
+        <record id="action_evaluacion" model="ir.actions.act_window">
+            <field name="name">Evaluaciones</field>
+            <field name="res_model">gestion_cursos.evaluacion</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <menuitem id="menu_evaluaciones" name="Evaluaciones" parent="menu_gestion_cursos_root" action="action_evaluacion" sequence="50"/>
+        <!-- Fin del menú de Gestión de Cursos -->
+    </data>
+</odoo>
+
+        

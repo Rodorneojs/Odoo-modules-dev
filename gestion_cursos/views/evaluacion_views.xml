@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista para Evaluaciones -->
+        <record id="view_evaluacion_list" model="ir.ui.view">
+            <field name="name">gestion_cursos.evaluacion.list</field>
+            <field name="model">gestion_cursos.evaluacion</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="alumno_id"/>
+                    <field name="curso_id"/>
+                    <field name="nota"/>
+                </list>
+            </field>
+        </record>
+        
+        <record id="view_evaluacion_form" model="ir.ui.view">
+            <field name="name">gestion_cursos.evaluacion.form</field>
+            <field name="model">gestion_cursos.evaluacion</field>
+            <field name="arch" type="xml">
+                <form string="Evaluación">
+                    <sheet>
+                        <group>
+                            <field name="alumno_id"/>
+                            <field name="curso_id"/>
+                            <field name="nota"/>
+                            <field name="comentarios"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+    

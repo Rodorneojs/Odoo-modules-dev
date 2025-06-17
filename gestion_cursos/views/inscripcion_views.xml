@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista para Inscripciones -->
+        <record id="view_inscripcion_tree" model="ir.ui.view">
+            <field name="name">gestion_cursos.inscripcion.tree</field>
+            <field name="model">gestion_cursos.inscripcion</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="alumno_id"/>
+                    <field name="curso_id"/>
+                    <field name="fecha_inscripcion"/>
+                    <field name="estado"/>
+                </list>
+            </field>
+        </record>
+        
+        <record id="view_inscripcion_form" model="ir.ui.view">
+            <field name="name">gestion_cursos.inscripcion.form</field>
+            <field name="model">gestion_cursos.inscripcion</field>
+            <field name="arch" type="xml">
+                <form string="Inscripción">
+                    <sheet>
+                        <group>
+                            <field name="alumno_id"/>
+                            <field name="curso_id"/>
+                            <field name="fecha_inscripcion"/>
+                            <field name="estado"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data> 
+</odoo>

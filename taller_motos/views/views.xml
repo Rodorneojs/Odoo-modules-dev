@@ -1,0 +1,248 @@
+<odoo>
+  <data>
+    <!-- Vista formulario para Moto -->
+    <record id="view_moto_form" model="ir.ui.view">
+      <field name="name">taller.moto.form</field>
+      <field name="model">taller.moto</field>
+      <field name="arch" type="xml">
+        <form string="Moto">
+          <!-- Botón en header -->
+          <header>
+            <button name="action_ver_trabajos"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-wrench">
+              <field name="cantidad_trabajos" widget="statinfo" string="Trabajos"/>
+            </button>
+          </header>
+          <!-- Sección general en dos columnas -->
+          <sheet>
+            <group string="Datos generales">
+              <field name="name"/>
+              <field name="marca"/>
+              <field name="modelo"/>
+              <field name="color"/>
+              <field name="anio"/>
+              <field name="fecha_ingreso"/>  
+              <field name="cliente_id"/>
+            </group>
+            <!-- Descripción -->
+            <separator string="Descripción generada" colspan="2"/>
+            <field name="descripcion" readonly="1" colspan="2"/>
+            <!-- Notebook con pestañas -->
+            <notebook>
+              <page string="Trabajos realizados">
+                <field name="trabajo_ids">
+                  <list editable="bottom">
+                    <field name="name"/>
+                    <field name="fecha"/>
+                    <field name="estado"/>
+                    <field name="costo"/>
+                  </list>
+                </field>
+              </page>
+
+              
+              <page string="Datos automáticos">
+                <group col="2">
+                  
+                  <field name="cantidad_trabajos" readonly="1"/>
+                  <field name="trabajos_terminados"/>
+                  <field name="ultimo_estado_trabajo" readonly="1"/>
+                  <field name="telefono_cliente" readonly="1"/>
+                </group>
+              </page>
+            </notebook>
+          </sheet>  
+        </form>
+      </field>
+    </record>
+    
+    <!-- Vista lista para Moto -->
+    <record id="view_moto_list" model="ir.ui.view">
+      <field name="name">taller.moto.list</field>
+      <field name="model">taller.moto</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="marca"/>
+          <field name="modelo"/>
+          <field name="descripcion" />
+        </list>
+      </field>
+    </record>
+    
+    #herencia de vistas anadiendo campo cantidad_trabajos
+    <record id="view_moto_list_inherit" model="ir.ui.view">
+      <field name="name">taller.moto.list.inherit</field>
+      <field name="model">taller.moto</field>
+      <field name="inherit_id" ref="taller_motos.view_moto_list"/>
+      <field name="arch" type="xml">
+        <xpath expr="//list" position="inside">
+          <field name="cantidad_trabajos"/>
+        </xpath>
+      </field>
+    </record>
+
+    
+    <!-- Vista formulario para Trabajo -->
+    <record id="view_trabajo_form" model="ir.ui.view">
+      <field name="name">taller.trabajo.form</field>
+      <field name="model">taller.trabajo</field>
+      <field name="arch" type="xml">
+        <form string="Trabajo">
+          <group>
+            <field name="name"/>
+            <field name="moto_id"/>
+            <field name="fecha"/>
+            <field name="costo"/>
+            <field name="estado"/>
+            <field name="observaciones"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    <!-- Vista lista para Trabajo -->
+    <record id="view_trabajo_tree" model="ir.ui.view">
+      <field name="name">taller.trabajo.list</field>
+      <field name="model">taller.trabajo</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="fecha"/>
+          <field name="estado"/>
+          <field name="costo"/>
+        </list>
+      </field>
+    </record>
+    <!-- Vista formulario para Mecanico -->
+    <record id="view_mecanico_form" model="ir.ui.view">
+      <field name="name">taller.mecanico.form</field>
+      <field name="model">taller.mecanico</field>
+      <field name="arch" type="xml">
+        <form string="Mecanico">
+          <group>
+            <field name="name"/>
+            <field name="telefono"/>
+            <field name="especialidad"/>
+          </group>
+          <notebook>
+            <page string="Trabajos asignados">
+              <field name="trabajo_ids">
+                <list editable="bottom">
+                  <field name="name"/>
+                  <field name="fecha"/>
+                  <field name="estado"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </form>
+      </field>
+    </record>
+    
+    <!-- Vista lista para Mecanico -->
+    <record id="view_mecanico_list" model="ir.ui.view">
+      <field name="name">taller.mecanico.list</field>
+      <field name="model">taller.mecanico</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="especialidad"/>
+        </list>
+      </field>
+    </record>
+    
+    <!-- Vista formulario Cliente -->
+    <record id="view_cliente_form" model="ir.ui.view">
+      <field name="name">taller.cliente.form</field>
+      <field name="model">taller.cliente</field>
+      <field name="arch" type="xml">
+        <form string="Cliente">
+          <group>
+            <field name="name"/>
+            <field name="ci"/>
+            <field name="telefono"/>
+            <field name="email"/>
+            <field name="direccion"/>
+          </group>
+          <notebook>
+            <page string="Motos del cliente">
+              <field name="moto_ids">
+                <list editable="bottom">
+                  <field name="name"/>
+                  <field name="marca"/>
+                  <field name="modelo"/>
+                  <field name="color"/>
+                </list>
+              </field>
+            </page>
+          </notebook>
+        </form>
+      </field>
+    </record>
+    
+    <!-- Vista lista Cliente -->
+    <record id="view_cliente_list" model="ir.ui.view">
+      <field name="name">taller.cliente.list</field>
+      <field name="model">taller.cliente</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="ci"/>
+          <field name="telefono"/>
+        </list>
+      </field>
+    </record>
+    
+    <!-- Acciones y menús -->
+    <record id="action_moto" model="ir.actions.act_window">
+      <field name="name">Motos</field>
+      <field name="res_model">taller.moto</field>
+      <field name="view_mode">list,form</field>
+    </record>
+    
+    <record id="action_trabajo" model="ir.actions.act_window">
+      <field name="name">Trabajos</field>
+      <field name="res_model">taller.trabajo</field>
+      <field name="view_mode">list,form</field>
+    </record>
+    
+    <record id="action_mecanico" model="ir.actions.act_window">
+      <field name="name">Mecanicos</field>
+      <field name="res_model">taller.mecanico</field>
+      <field name="view_mode">list,form</field>
+    </record>
+    
+    <!-- Acción para cliente -->
+    <record id="action_cliente" model="ir.actions.act_window">
+      <field name="name">Clientes</field>
+      <field name="res_model">taller.cliente</field>
+      <field name="view_mode">list,form</field>
+    </record>
+    
+    <record id="action_trabajos_por_moto" model="ir.actions.act_window">
+      <field name="name">Trabajos de esta Moto</field>
+      <field name="res_model">taller.trabajo</field>
+      <field name="view_mode">list,form</field>
+      <field name="domain">[('moto_id', '=', active_id)]</field>
+    </record>
+
+    
+    <menuitem id="menu_taller_root" name="Taller Motos" sequence="10"/>
+
+    <menuitem id="menu_motos" name="Motos" parent="menu_taller_root" action="action_moto" sequence="10"/>
+    <menuitem id="menu_moto_list" name="Todas las Motos" parent="menu_motos" action="action_moto" sequence="1"/>
+    
+    
+    <menuitem id="menu_trabajos" name="Trabajos" parent="menu_taller_root" action="action_trabajo"/>
+    <menuitem id="menu_trabajo_list" name="Todos los Trabajos" parent="menu_trabajos" action="action_trabajo" sequence="1"/>
+
+    <menuitem id="menu_mecanicos" name="Mecánicos" parent="menu_taller_root" action="action_mecanico"/>
+    <menuitem id="menu_mecanico_list" name="Lista de Mecánicos" parent="menu_mecanicos" action="action_mecanico" sequence="1"/>
+
+    <menuitem id="menu_clientes" name="Clientes" parent="menu_taller_root" action="action_cliente"/>
+    <menuitem id="menu_cliente_list" name="Lista de Clientes" parent="menu_clientes" action="action_cliente" sequence="1"/>
+  </data>
+</odoo>
+

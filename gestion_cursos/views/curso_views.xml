@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- vista para Cursos -->
+        <record id="view_curso_list" model="ir.ui.view">
+            <field name="name">gestion_cursos.curso.list</field>
+            <field name="model">gestion_cursos.curso</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                    <field name="duracion_horas"/>
+                </list>
+            </field>
+        </record>
+        
+        <record id="view_curso_form" model="ir.ui.view">
+            <field name="name">gestion_cursos.curso.form</field>
+            <field name="model">gestion_cursos.curso</field>
+            <field name="arch" type="xml">
+                <form string="Curso">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="descripcion"/>
+                            <field name="fecha_inicio"/>
+                            <field name="fecha_fin"/>
+                            <field name="duracion_horas"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

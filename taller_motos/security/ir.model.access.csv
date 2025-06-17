@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_taller_moto,taller.moto,model_taller_moto,base.group_user,1,1,1,1
+access_taller_trabajo,taller.trabajo,model_taller_trabajo,base.group_user,1,1,1,1
+access_taller_mecanico,taller.mecanico,model_taller_mecanico,base.group_user,1,1,1,1
+access_taller_cliente,taller.cliente,model_taller_cliente,base.group_user,1,1,1,1
