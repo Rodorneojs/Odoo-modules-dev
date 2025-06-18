@@ -1,24 +1,40 @@
 <odoo>
-  <data>
-    <!--
-         <template id="listing">
-         <ul>
-         <li t-foreach="objects" t-as="object">
-         <a t-attf-href="#{ root }/objects/#{ object.id }">
-         <t t-esc="object.display_name"/>
-         </a>
-         </li>
-         </ul>
-         </template>
-         <template id="object">
-         <h1><t t-esc="object.display_name"/></h1>
-         <dl>
-         <t t-foreach="object._fields" t-as="field">
-         <dt><t t-esc="field"/></dt>
-         <dd><t t-esc="object[field]"/></dd>
-         </t>
-         </dl>
-         </template>
-    -->
-  </data>
+    <data>
+      <template id="curso_dashboard_template" name="Dashboard Cursos" inherit_id="website.layout">
+        <xpath expr="//main" position="inside">
+          <section class="container mt-5 mb-5">
+            <h2 class="text-center mb-4">Dashboard de Cursos</h2>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Total de Cursos</h5>
+                    <p class="card-text display-4"><t t-esc="total_cursos"/></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card text-white bg-success mb-3">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Cursos Activos</h5>
+                    <p class="card-text display-4"><t t-esc="cursos_activos"/></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card text-white bg-info mb-3">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Curso Más Largo</h5>
+                    <p class="card-text display-4"><t t-esc="curso_mas_largo"/></p>
+                    <p class="card-text">
+                      <strong><t t-esc="duracion_mas_larga"/></strong> horas
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </xpath>
+      </template>
+    </data>
 </odoo>

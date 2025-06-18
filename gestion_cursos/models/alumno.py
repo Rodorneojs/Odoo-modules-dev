@@ -8,3 +8,4 @@ class Alumno(models.Model):
     email = fields.Char(string='Correo Electrónico')
     telefono = fields.Char(string='Teléfono')
     curso_ids = fields.Many2many('gestion_cursos.curso', string='Cursos Inscritos', relation='alumno_curso_rel')
+    user_id = fields.Many2one('res.users', string='Usuario relacionado')

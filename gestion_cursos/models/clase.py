@@ -6,6 +6,8 @@ class Clase(models.Model):
 
     name = fields.Char(string='Tema o Título', required=True)
     curso_id = fields.Many2one('gestion_cursos.curso', string='Curso', required=True)
-    fecha = fields.Datetime(string='Fecha y Hora de la clase')
-    fecha_fin = fields.Datetime(string='Fecha y Hora de Fin de la clase')
-    duracion_minutos = fields.Integer(string='Duración (minutos)')
+    fecha = fields.Datetime(string='Fecha Inicio')
+    fecha_fin = fields.Datetime(string='Fecha Fin')
+    duracion_horas = fields.Integer(string='Duración horas', required=True)
+    duracion_minutos = fields.Integer(string='Duración (minutos)', required=True)
+

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- vista para Cursos -->
+
+        <!-- Vista tipo lista para Cursos -->
         <record id="view_curso_list" model="ir.ui.view">
             <field name="name">gestion_cursos.curso.list</field>
             <field name="model">gestion_cursos.curso</field>
@@ -14,25 +15,101 @@
                 </list>
             </field>
         </record>
-        
+
+        <!-- Vista Kanban para Cursos -->
+        <record id="view_curso_kanban" model="ir.ui.view">
+            <field name="name">gestion_cursos.curso.kanban</field>
+            <field name="model">gestion_cursos.curso</field>
+            <field name="arch" type="xml">
+                <kanban string="Sobre el curso:">
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                    <field name="duracion_horas"/>
+                    <field name="fecha_inicio"/>
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click o_kanban_record">
+                                <div class="o_kanban_card">
+
+                                    <!-- Nombre del curso -->
+                                    <strong class="d-block text-primary mb-1">
+                                        <t t-esc="record.name.value"/>
+                                    </strong>
+
+                                    <!-- Descripción -->
+                                    <div class="text-muted mb-1">
+                                        <t t-esc="record.descripcion.value"/>
+                                    </div>
+
+                                    <!-- Duración -->
+                                    <div class="mb-1">
+                                        <i class="fa fa-clock-o" title="Duración"/>
+                                        <t t-esc="record.duracion_horas.value"/> horas
+                                    </div>
+
+                                    <!-- Fecha de inicio -->
+                                    <div class="mb-2">
+                                        <i class="fa fa-calendar" title="Inicio"/>
+                                        <t t-esc="record.fecha_inicio.value"/>
+                                    </div>
+                                    
+                                    <!-- Botones -->
+                                    <div class="o_kanban_buttons d-flex gap-2 mt-2">
+                                        <button type="object" name="action_view_details"
+                                                class="btn btn-sm btn-outline-primary o_kanban_action">
+                                            <i class="fa fa-eye"/> Ver
+                                        </button>
+                                        
+                                        <button type="edit"
+                                                class="btn btn-sm btn-outline-secondary o_kanban_edit">
+                                            <i class="fa fa-pencil"/> Editar
+                                        </button>
+                                        
+                                        <button type="object" name="action_inscribirse"
+                                                class="btn btn-sm btn-outline-success o_kanban_action">
+                                            <i class="fa fa-check-circle"/> Inscribirse
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vista formulario para Cursos -->
         <record id="view_curso_form" model="ir.ui.view">
             <field name="name">gestion_cursos.curso.form</field>
             <field name="model">gestion_cursos.curso</field>
             <field name="arch" type="xml">
                 <form string="Curso">
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object" name="action_ver_clases"
+                                    class="oe_stat_button" icon="fa-calendar">
+                                <field string="Clases" name="clase_count" widget="statinfo"/>
+                            </button>
+                        </div>
                         <group>
-                            <field name="name"/>
-                            <field name="descripcion"/>
-                            <field name="fecha_inicio"/>
-                            <field name="fecha_fin"/>
-                            <field name="duracion_horas"/>
+                            <group>
+                                <field name="name"/>
+                                <field name="descripcion"/>
+                                <field name="activo"/>
+                            </group>
+                            <group>
+                                <field name="fecha_inicio"/>
+                                <field name="fecha_fin"/>
+                                <field name="duracion_horas"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
-        <!-- Vista de calendario para Cursos -->
+
+        <!-- Vista Calendario -->
         <record id="view_curso_calendar" model="ir.ui.view">
             <field name="name">gestion_cursos.curso.calendar</field>
             <field name="model">gestion_cursos.curso</field>
@@ -42,5 +119,8 @@
                 </calendar>
             </field>
         </record>
+
     </data>
 </odoo>
+
+

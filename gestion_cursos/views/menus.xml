@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- Menú raíz con ícono -->
+        <menuitem id="menu_gestion_cursos_root"
+                  name="Gestión de Cursos"
+                  sequence="10"
+                  web_icon="gestion_cursos/static/description/icon.png"/>
+
         <!-- Menú de Gestión de Cursos -->
             <!-- Menú raíz -->
         <menuitem id="menu_gestion_cursos_root" name="Gestión de Cursos" sequence="10"/>
