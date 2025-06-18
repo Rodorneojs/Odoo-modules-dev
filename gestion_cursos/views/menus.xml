@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Menú raíz con ícono -->
+        <!-- Menú raíz Gestión de cursos con ícono -->
         <menuitem id="menu_gestion_cursos_root"
                   name="Gestión de Cursos"
                   sequence="10"
                   web_icon="gestion_cursos/static/description/icon.png"/>
-
-        <!-- Menú de Gestión de Cursos -->
-            <!-- Menú raíz -->
-        <menuitem id="menu_gestion_cursos_root" name="Gestión de Cursos" sequence="10"/>
-        
+   
         <!-- Acción y menú para Cursos -->
         <record id="action_curso" model="ir.actions.act_window">
             <field name="name">Cursos</field>
@@ -54,6 +50,14 @@
             <field name="res_model">gestion_cursos.evaluacion</field>
             <field name="view_mode">list,form</field>
         </record>
+        <!-- Acción y menú para Docentes -->
+        <record id="action_docente" model="ir.actions.act_window">
+            <field name="name">Docentes</field>
+            <field name="res_model">gestion_cursos.docente</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+        <menuitem id="menu_docentes" name="Docentes" parent="menu_gestion_cursos_root" action="action_docente" sequence="60"/>
         
         <menuitem id="menu_evaluaciones" name="Evaluaciones" parent="menu_gestion_cursos_root" action="action_evaluacion" sequence="50"/>
         <!-- Fin del menú de Gestión de Cursos -->

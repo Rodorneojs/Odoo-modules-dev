@@ -102,10 +102,30 @@
                                 <field name="fecha_inicio"/>
                                 <field name="fecha_fin"/>
                                 <field name="duracion_horas"/>
+                                <field name="duracion_minutos"/>
+                                <field name="docente_id"/>
                             </group>
                         </group>
                     </sheet>
                 </form>
+            </field>
+        </record>
+        
+        <!-- Vista búsqueda avanzada para Cursos -->
+        <record id="view_curso_form_inherit_wizard_button" model="ir.ui.view">
+            <field name="name">gestion_cursos.curso.form.inherit.wizard</field>
+            <field name="model">gestion_cursos.curso</field>
+            <field name="inherit_id" ref="gestion_cursos.view_curso_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <header>
+                        <button name="%(gestion_cursos.action_inscribir_alumnos_wizard)d" 
+                                string="Inscribir Alumnos" 
+                                type="action"
+                                class="oe_highlight"
+                                context="{'default_curso_id': id}"/>
+                    </header>
+                </xpath>
             </field>
         </record>
 

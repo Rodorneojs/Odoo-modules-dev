@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record id="view_form_docente" model="ir.ui.view">
+            <field name="name">gestion_cursos.docente.form</field>
+            <field name="model">gestion_cursos.docente</field>
+            <field name="arch" type="xml">
+                <form string="Docente">
+                    <sheet>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="titulo"/>
+                            <field name="experiencia"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_list_docente" model="ir.ui.view">
+            <field name="name">gestion_cursos.docente.list</field>
+            <field name="model">gestion_cursos.docente</field>
+            <field name="arch" type="xml">
+                <list string="Docentes">
+                    <field name="partner_id"/>
+                    <field name="titulo"/>
+                    <field name="experiencia"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>

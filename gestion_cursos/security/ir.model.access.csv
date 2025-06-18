@@ -4,4 +4,7 @@ access_gestion_cursos_alumno,gestion_cursos.alumno,model_gestion_cursos_alumno,b
 access_gestion_cursos_clase,gestion_cursos.clase,model_gestion_cursos_clase,base.group_user,1,1,1,1
 access_gestion_cursos_inscripcion,gestion_cursos.inscripcion,model_gestion_cursos_inscripcion,base.group_user,1,1,1,1
 access_gestion_cursos_evaluacion,gestion_cursos.evaluacion,model_gestion_cursos_evaluacion,base.group_user,1,1,1,1
+access_gestion_cursos_docente,access_gestion_cursos_docente,model_gestion_cursos_docente,,1,1,1,1
+access_res_partner_extend,access_res_partner_extend,model_res_partner,,1,0,0,0
+access_inscribir_alumnos_wizard_user,access_inscribir_alumnos_wizard_user,model_gestion_cursos_inscribir_alumnos_wizard,,1,1,1,1
 

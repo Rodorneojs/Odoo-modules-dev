@@ -28,8 +28,11 @@ Long description of module's purpose
         'views/curso_views.xml',
         'views/evaluacion_views.xml', 
         'views/inscripcion_views.xml',  
+        'views/docente_views.xml', 
+        'views/wizard_inscripcion_views.xml', 
         'views/menus.xml',   
         'views/templates.xml',
+        'data/email_template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
