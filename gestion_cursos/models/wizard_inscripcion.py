@@ -22,4 +22,6 @@ class InscribirAlumnosWizard(models.TransientModel):
             })
             # Enviar email con plantilla
             template.send_mail(inscripcion.id, force_send=True)
+
         return {'type': 'ir.actions.act_window_close'}  # Cierra el wizard
+    

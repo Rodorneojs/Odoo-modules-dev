@@ -1,5 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
+from datetime import date
 
 class Curso(models.Model):
     _name = 'gestion_cursos.curso'
@@ -43,3 +45,14 @@ class Curso(models.Model):
         return True
     def action_view_details(self):
         raise UserError("Este es un ejemplo. Aquí podrías mostrar un wizard, redireccionar a otra vista, etc.")
+    
+    @api.constrains('fecha_inicio', 'fecha_fin')
+    def _check_fechas_validas(self):
+        hoy = date.today()
+        for curso in self:
+            if curso.fecha_inicio < hoy:
+                raise ValidationError("📅 La fecha de inicio no puede estar en el pasado.")
+            if curso.fecha_fin < hoy:
+                raise ValidationError("📅 La fecha de fin no puede estar en el pasado.")
+            if curso.fecha_fin < curso.fecha_inicio:
+                raise ValidationError("⚠️ La fecha de fin no puede ser anterior a la fecha de inicio.")

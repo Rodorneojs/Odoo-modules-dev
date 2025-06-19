@@ -3,15 +3,17 @@
         <record id="email_template_inscripcion_curso" model="mail.template">
             <field name="name">Notificación Inscripción Curso</field>
             <field name="model_id" ref="model_gestion_cursos_inscripcion"/>
-            <field name="subject">Confirmación inscripción en el curso: ${object.curso_id.name}</field>
-            <field name="email_from">${(user.email or '')|safe}</field>
-            <field name="email_to">${object.alumno_id.email|safe}</field>
+            <field name="subject">Confirmación inscripción en el curso {{ object.curso_id.name }}</field>
+            <field name="email_from">{{(user.email or '')|safe}}</field>
+            <field name="email_to">{{object.alumno_id.email|safe}}</field>
+            <field name="auto_delete" eval="True"/>
             <field name="body_html"><![CDATA[
-                <p>Hola ${object.alumno_id.name},</p>
-                <p>Te has inscrito correctamente en el curso <strong>${object.curso_id.name}</strong>.</p>
-                <p>Fecha de inscripción: ${object.fecha_inscripcion}</p>
+                <p>Hola {{object.alumno_id.name}},</p>
+                <p>Te has inscrito correctamente en el curso <strong>{{object.curso_id.name}}</strong>.</p>
+                <p>Fecha de inscripción: {{object.fecha_inscripcion}}</p>
                 <p>¡Gracias por confiar en nosotros!</p>
             ]]></field>
         </record>
     </data>
 </odoo>
+
