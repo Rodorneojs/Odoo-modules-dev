@@ -1,0 +1,11 @@
+<odoo>
+    <record id="reporte_lista_alumnos_id" model="ir.actions.report">
+        <field name="name">Lista de Inscritos</field>
+        <field name="model">gestion_cursos.curso</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gestion_cursos.report_lista_inscritos</field>
+        <field name="report_file">gestion_cursos.report_lista_inscritos</field>
+        <field name="binding_model_id" ref="model_gestion_cursos_curso"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

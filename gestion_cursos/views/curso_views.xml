@@ -85,6 +85,12 @@
             <field name="model">gestion_cursos.curso</field>
             <field name="arch" type="xml">
                 <form string="Curso">
+                    <header>
+                        <button name="%(reporte_lista_alumnos_id)d"
+                                type="action"
+                                class="btn btn-primary"
+                                string="Imprimir Lista de Inscritos"/>
+                    </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                             <button type="object" name="action_ver_clases"

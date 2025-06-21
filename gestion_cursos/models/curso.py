@@ -18,6 +18,8 @@ class Curso(models.Model):
     clase_ids = fields.One2many('gestion_cursos.clase', 'curso_id', string='Clases')
     alumnos_ids = fields.Many2many('gestion_cursos.alumno', string='Alumnos inscritos')
     docente_id = fields.Many2one('gestion_cursos.docente', string='Docente')
+    inscripcion_ids = fields.One2many('gestion_cursos.inscripcion', 'curso_id', string='Inscritos')
+
 
     activo = fields.Boolean(string='Activo', default=True)
 
